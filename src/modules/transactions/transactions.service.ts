@@ -14,7 +14,6 @@ export async function canUserPurchase(user: UserDoc) {
   return (user.purchasesUsed || 0) < limit;
 }
 
-// Called after Stripe confirms payment (webhook) in a real production setup.
 export async function recordPurchase(userId: string, artworkId: string) {
   const db = getDB();
   const user = await db.collection<UserDoc>(USERS).findOne({ _id: new ObjectId(userId) });

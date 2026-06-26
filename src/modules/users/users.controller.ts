@@ -51,8 +51,6 @@ export async function changeUserRole(req: AuthRequest, res: Response, next: Next
 
 export async function upgradeSubscription(req: AuthRequest, res: Response, next: NextFunction) {
   try {
-    // NOTE: In production, this runs only after Stripe confirms payment success
-    // (e.g. inside a verified webhook handler). Here it's a direct stub.
     const { tier } = req.body;
     const user = await usersService.updateSubscription(req.user!.id, tier);
     res.json(user);

@@ -2,8 +2,6 @@ import { Response, NextFunction } from "express";
 import { AuthRequest } from "../../types.js";
 import * as svc from "./transactions.service.js";
 
-// In production this is replaced by a Stripe Checkout session creation,
-// and recordPurchase() is called from the Stripe webhook after payment succeeds.
 export async function purchase(req: AuthRequest, res: Response, next: NextFunction) {
   try {
     const { artworkId } = req.body;

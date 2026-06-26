@@ -14,7 +14,7 @@ export async function connectDB(): Promise<Db> {
   const client = new MongoClient(process.env.MONGODB_URI);
   await client.connect();
 
- 
+
   db = client.db(process.env.MONGODB_DB_NAME || "arthub");
   console.log("MongoDB connected");
   return db;

@@ -55,8 +55,6 @@ export interface JwtPayload {
   email: string;
   role: Role;
 }
-
-// Express Request augmented with the decoded JWT payload (set by requireAuth middleware)
 export interface AuthRequest extends Request {
   user?: JwtPayload;
 }
